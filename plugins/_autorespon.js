@@ -12,8 +12,8 @@ handler.all = async function (m, { conn, isBlocked }) {
     if (m.isGroup) {
         if (m.mentionedJid.includes(this.user.jid)) {
             await this.send2Button(m.chat,
-                isBanned ? 'stikerin tidak aktif' : banned ? 'kamu dibanned' : 'stikerin aktif',
-                '© stikerin',
+                isBanned ? 'Miyuki DVT tidak aktif' : banned ? 'kamu dibanned' : 'Miyuki DVT aktif',
+                '© Miyuki DVT',
                 isBanned ? 'Unban' : banned ? 'Pemilik Bot' : 'Menu',
                 isBanned ? '.unban' : banned ? '.owner' : '.?',
                 m.isGroup ? 'Ban' : isBanned ? 'Unban' : 'Donasi',
@@ -24,12 +24,13 @@ handler.all = async function (m, { conn, isBlocked }) {
     // ketika ada yang invite/kirim link grup di chat pribadi
     if ((m.mtype === 'groupInviteMessage' || m.text.startsWith('https://chat') || m.text.startsWith('Buka tautan ini')) && !m.isBaileys && !m.isGroup) {
         this.sendButton(m.chat, `┌「 *Undang Bot ke Grup* 」
-├ 7 Hari / Rp 5,000
-├ 30 Hari / Rp 10,000
+├ 7 Hari / Rp 10,000
+├ 30 Hari / Rp 20,000
+├ https://saweria.co/Mayumi
 └────
 
-https://github.com/ariffb25/stikerinbot
-`.trim(), '© stikerin', 'Pemilik Bot', ',owner', m)
+https://github.com
+`.trim(), '© Miyuki DVT', 'Pemilik Bot', ',owner', m)
     }
 
     // salam
