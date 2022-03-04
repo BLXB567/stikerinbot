@@ -6,10 +6,10 @@ async function handler(m, { command, usedPrefix, isOwner }) {
         case 'next':
         case 'leave': {
             let room = Object.values(this.anonymous).find(room => room.check(m.sender))
-            if (!room) return await this.sendButton(m.chat, '_Kamu tidak sedang berada di anonymous chat_', '© stikerin', 'Cari Partner', `${usedPrefix}start`, m)
+            if (!room) return await this.sendButton(m.chat, '_Kamu tidak sedang berada di anonymous chat_', '© Miyuki DVT', 'Cari Partner', `${usedPrefix}start`, m)
             m.reply('_Ok_')
             let other = room.other(m.sender)
-            if (other) await this.sendButton(other, '_Partner meninggalkan chat_', '© stikerin', 'Cari Partner', `${usedPrefix}start`, m)
+            if (other) await this.sendButton(other, '_Partner meninggalkan chat_', '© Miyuki DVT', 'Cari Partner', `${usedPrefix}start`, m)
             delete this.anonymous[room.id]
             if (command === 'leave') break
         }
