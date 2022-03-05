@@ -17,7 +17,7 @@ handler.before = async function (m, { isPrems }) {
         let json = await res.json()
         if (!json.status) return m.reply(this.format(json))
         await m.reply(wait)
-        await this.sendFile(m.chat, json.videoSD, '', '© stikerin', m)
+        await this.sendFile(m.chat, json.videoSD, '', '© Miyuki DVT', m)
     }
 
     if (/https?:\/\/i\.coco\.fun\//i.test(m.text)) {
@@ -25,7 +25,7 @@ handler.before = async function (m, { isPrems }) {
         if (!res.ok) return m.reply(eror)
         let json = await res.json()
         await m.reply(wait)
-        await this.sendFile(m.chat, json.download, '', '© stikerin', m)
+        await this.sendFile(m.chat, json.download, '', '© Miyuki DVT ', m)
     }
 
     if (/https?:\/\/(fb\.watch|(www\.|web\.|m\.)?facebook\.com)/i.test(m.text)) {
@@ -89,7 +89,7 @@ handler.before = async function (m, { isPrems }) {
 *Ukuran File Audio:* ${filesizeF}
 *Ukuran File Video:* ${yt2.filesizeF}
 *Server y2mate:* ${usedServer}
-`.trim(), '© stikerin', 'Audio', `.yta ${vid.url}`, 'Video', `.ytv ${vid.url}`)
+`.trim(), '© Miyuki DVT', 'Audio', `.yta ${vid.url}`, 'Video', `.ytv ${vid.url}`)
     }
 
     return !0
