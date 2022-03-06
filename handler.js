@@ -451,7 +451,7 @@ module.exports = {
 		  imageMsg = (await client.prepareMessageMedia(buff, "imageMessage", { thumbnail: buff, })).imageMessage
 		  buttonsMessage = {footerText:'Mayumi DVT', imageMessage: imageMsg                
                        }
-    })break
+    }break
   async delete(m) {
     let chat = global.db.data.chats[m.key.remoteJid]
     if (chat.delete) return
